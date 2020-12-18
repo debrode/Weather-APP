@@ -6,6 +6,7 @@ window.addEventListener("load",()=>{
     let tempdegree= document.querySelector(".degree");
     let timezone = document.querySelector(".timezone")
     let iconElement =document.querySelector(".icon");
+    
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position=>{
             long=position.coords.longitude;
@@ -30,6 +31,10 @@ window.addEventListener("load",()=>{
 
                 });
         });
+    }
+    else
+    {
+       timezone.textContent="you did not allowed the location!"
     }
 //   function   
 });
