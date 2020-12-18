@@ -6,7 +6,7 @@ window.addEventListener("load",()=>{
     let tempdegree= document.querySelector(".degree");
     let timezone = document.querySelector(".timezone")
     let iconElement =document.querySelector(".icon");
-    
+    let humidityEle= document.querySelector(".humidity");
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position=>{
             long=position.coords.longitude;
@@ -28,7 +28,11 @@ window.addEventListener("load",()=>{
                   temperatureDesc.textContent=description;
                   const {icon}=data.weather[0];
                  iconElement.innerHTML= `<img src="icons/${icon}.png"/>`;
-
+                 const {humidity}=data.main;
+                 if(humidityEle)
+                 {
+                     humidityEle.textContent="Humidity: "+humidity+"%";
+                 }
                 });
         });
     }
