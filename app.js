@@ -20,6 +20,13 @@ window.addEventListener("load",()=>{
                   console.log(data);
                   const {feels_like}= data.main;
                   tempdegree.textContent=Math.floor(feels_like-273);
+                  const {country}=data.sys;
+                  timezone.textContent=data.name +","+ country;
+
+                  const {description}= data.weather[0];
+                  temperatureDesc.textContent=description;
+
+
                 });
         });
     }
