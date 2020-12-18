@@ -5,7 +5,7 @@ window.addEventListener("load",()=>{
     let temperatureDesc=document.querySelector(".temp-desc");
     let tempdegree= document.querySelector(".degree");
     let timezone = document.querySelector(".timezone")
-    
+    let iconElement =document.querySelector(".icon");
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position=>{
             long=position.coords.longitude;
@@ -25,11 +25,12 @@ window.addEventListener("load",()=>{
 
                   const {description}= data.weather[0];
                   temperatureDesc.textContent=description;
-
+                  const {icon}=data.weather[0];
+                 iconElement.innerHTML= `<img src="icons/${icon}.png"/>`;
 
                 });
         });
     }
-    
+//   function   
 });
 
