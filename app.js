@@ -7,6 +7,7 @@ window.addEventListener("load",()=>{
     let timezone = document.querySelector(".timezone")
     let iconElement =document.querySelector(".icon");
     let humidityEle= document.querySelector(".humidity");
+    let windspeedEle= document.querySelector(".windspeed");
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position=>{
             long=position.coords.longitude;
@@ -33,6 +34,8 @@ window.addEventListener("load",()=>{
                  {
                      humidityEle.textContent="Humidity: "+humidity+"%";
                  }
+                 const {speed}=data.wind;
+                 windspeedEle.textContent=Math.floor(speed*(5*18))+" km/hr";
                 });
         });
     }
