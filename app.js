@@ -35,7 +35,7 @@ window.addEventListener("load",()=>{
                      humidityEle.textContent="Humidity: "+humidity+"%";
                  }
                  const {speed}=data.wind;
-                 windspeedEle.textContent=Math.floor(speed*(1))+" km/hr";
+                 windspeedEle.textContent=Math.floor(speed*(1/60)+" km/hr";
                 });
         });
     }
